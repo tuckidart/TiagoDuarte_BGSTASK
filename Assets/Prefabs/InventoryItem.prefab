@@ -89,5 +89,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c238d5db145139d499d62d5dde44e1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDataTest: {fileID: 0}
+  itemDataTest: {fileID: 11400000, guid: 00d481aa9e3000346826d610b582ca58, type: 2}
   _image: {fileID: 6391780105497294586}

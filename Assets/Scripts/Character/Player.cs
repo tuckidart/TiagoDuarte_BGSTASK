@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class Player : Character
 {
+    [Space]
+
+    [SerializeField]
+    private EquipView[] _equipViews = null;
+
     public static Player Instance { get; private set; } = null;
 
     private CharacterState _characterState = null;
@@ -71,6 +76,29 @@ public class Player : Character
         if (_characterState == _idle)
         {
             ChangeState(ECharacterState.MOVEMENT);
+        }
+    }
+
+    public void EquipItem(ItemData data)
+    {
+        int it = 0;
+        for (int i = 0; i < _equipViews.Length; i++)
+        {
+            if (_equipViews[i].EquipType == data.type)
+            {
+                _equipViews[i].Equip(data.Sprites[it++]);
+            }
+        }
+    }
+
+    public void UnequipItem(ItemData data)
+    {
+        for (int i = 0; i < _equipViews.Length; i++)
+        {
+            if (_equipViews[i].EquipType == data.type)
+            {
+                _equipViews[i].Unequip();
+            }
         }
     }
 }

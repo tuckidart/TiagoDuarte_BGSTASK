@@ -13,6 +13,17 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
         if (transform.childCount == 0 && (inventoryItem.Data.type == _slotType || _slotType == ItemType.Default))
         {
+            ItemType previousSlotType = inventoryItem.Parent.GetComponent<InventorySlot>().Type;
+            if (previousSlotType != ItemType.Default)
+            {
+                Player.Instance.UnequipItem(inventoryItem.Data);
+            }
+
+            if (_slotType != ItemType.Default)
+            {
+                Player.Instance.EquipItem(inventoryItem.Data);
+            }
+
             inventoryItem.SetNewParent(transform);
         }
     }
