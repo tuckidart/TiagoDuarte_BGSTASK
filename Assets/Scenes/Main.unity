@@ -2047,7 +2047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d951fae57a033419b0486e6565ff85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDataTest: {fileID: 11400000, guid: 00d481aa9e3000346826d610b582ca58, type: 2}
+  itemDataTest: {fileID: 11400000, guid: fde1fc0f67e219d42b5ec890eeacb4da, type: 2}
   _camera: {fileID: 519420031}
   _inventoryUis:
   - {fileID: 6424080191192027066}
@@ -4096,7 +4096,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144281330038948563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.86, y: 1.32, z: 0}
+  m_LocalPosition: {x: 3.86, y: 0.29, z: 0}
   m_LocalScale: {x: -0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
