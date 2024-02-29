@@ -47,7 +47,7 @@ public class InventoryManager : MonoBehaviour
         AddCoins(999);
     }
 
-    public bool AddItem(ItemData data)
+    public void AddItem(ItemData data)
     {
         for (int i = 0; i < _inventorySlots.Length; i++)
         {
@@ -56,11 +56,9 @@ public class InventoryManager : MonoBehaviour
             if (item == null)
             {
                 CreateItemInSlot(data, slot);
-                return true;
+                break;
             }
         }
-
-        return false;
     }
 
     public void RemoveItem(InventoryItem item)

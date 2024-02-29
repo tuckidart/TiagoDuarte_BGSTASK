@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b219522a26fb54ea5928a1e4d43802, type: 3}
   m_Name: Boots 4
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: add7b98e4870e9d4c8e1dd5e07e3de1c, type: 3}
+  Icon: {fileID: 21300000, guid: 6a78b112553be03498ccfb5c1291cc65, type: 3}
   type: 6
   Price: 10
   Sprites:

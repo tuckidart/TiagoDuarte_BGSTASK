@@ -1,9 +1,8 @@
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class ShopSlot : MonoBehaviour, IPointerClickHandler
+public class ShopSlot : MonoBehaviour
 {
     [SerializeField]
     private Image _image = null;
@@ -23,20 +22,12 @@ public class ShopSlot : MonoBehaviour, IPointerClickHandler
         _price.text = data.Price.ToString();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void BuyItem()
     {
-        if (eventData.button != PointerEventData.InputButton.Left)
-            return;
-
         if (InventoryManager.Instance.Coins >= _data.Price)
         {
-            BuyItem();
+            InventoryManager.Instance.AddItem(_data);
+            InventoryManager.Instance.RemoveCoins(_data.Price);
         }
-    }
-
-    private void BuyItem()
-    {
-        InventoryManager.Instance.AddItem(_data);
-        InventoryManager.Instance.RemoveCoins(_data.Price);
     }
 }
