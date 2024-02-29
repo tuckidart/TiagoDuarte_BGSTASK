@@ -6,9 +6,6 @@ using System;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    //for testing porpuses only
-    public ItemData itemDataTest = null;
-
     [SerializeField]
     private Image _image = null;
 
@@ -21,12 +18,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private bool _canSell = false;
 
     private Action<InventoryItem> _sellCallback = null;
-
-    private void Start()
-    {
-        //for testing porpuses only
-        CreateItem(itemDataTest);
-    }
 
     public void CreateItem(ItemData data)
     {

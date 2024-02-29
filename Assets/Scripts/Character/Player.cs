@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public static Player Instance { get; private set; } = null;
+
     [Space]
 
     [SerializeField]
     private EquipView[] _equipViews = null;
-
-    public static Player Instance { get; private set; } = null;
 
     private CharacterState _characterState = null;
 

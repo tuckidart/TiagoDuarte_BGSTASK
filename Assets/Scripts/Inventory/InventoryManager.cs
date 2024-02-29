@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    //for testing porpuses only
+    public ItemData itemDataTest = null;
+
+    public static InventoryManager Instance { get; private set; } = null;
+
     [SerializeField]
     private Camera _camera = null;
 
@@ -27,6 +32,23 @@ public class InventoryManager : MonoBehaviour
 
     private int _coins = 0;
     public int Coins => _coins;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        //for testing porpuses only
+        AddItem(itemDataTest);
+    }
 
     public bool AddItem(ItemData data)
     {
@@ -67,11 +89,6 @@ public class InventoryManager : MonoBehaviour
             _inventoryUis[i].SetActive(true);
         }
 
-        for (int i = 0; i < _items.Count; i++)
-        {
-            _items[i].EnableSell();
-        }
-
         _camera.orthographicSize = _zoomSize;
         Player.Instance.DisableMove();
     }
@@ -83,13 +100,24 @@ public class InventoryManager : MonoBehaviour
             _inventoryUis[i].SetActive(false);
         }
 
+        _camera.orthographicSize = _defaultSize;
+        Player.Instance.EnableMove();
+    }
+
+    public void EnableSell()
+    {
+        for (int i = 0; i < _items.Count; i++)
+        {
+            _items[i].EnableSell();
+        }
+    }
+
+    public void DisableSell()
+    {
         for (int i = 0; i < _items.Count; i++)
         {
             _items[i].DisableSell();
         }
-
-        _camera.orthographicSize = _defaultSize;
-        Player.Instance.EnableMove();
     }
 
     public void AddCoins(int value) => _coins += value;

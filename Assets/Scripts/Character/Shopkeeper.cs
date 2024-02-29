@@ -1,11 +1,16 @@
-using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine;
 
 public class Shopkeeper : Character, IPointerClickHandler
 {
     private Idle _idle;
 
     private bool _playerInRange = false;
+
+    [Space]
+
+    [SerializeField]
+    private Shop _shop = null;
 
     private void Start()
     {
@@ -20,8 +25,7 @@ public class Shopkeeper : Character, IPointerClickHandler
 
         if (_playerInRange)
         {
-            Debug.Log("open dialogue");
-            Player.Instance.DisableMove();
+            _shop.OpenShop();
         }
     }
 
