@@ -9,6 +9,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
         InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
 
         if (transform.childCount == 0 && (inventoryItem.Data.type == _slotType || _slotType == ItemType.Default))

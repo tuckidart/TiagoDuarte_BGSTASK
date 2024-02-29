@@ -6,7 +6,6 @@ public class Shopkeeper : Character, IPointerClickHandler
     private Idle _idle;
 
     private bool _playerInRange = false;
-    private bool _interacting = false;
 
     private void Start()
     {
@@ -16,11 +15,13 @@ public class Shopkeeper : Character, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_playerInRange && !_interacting)
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
+        if (_playerInRange)
         {
             Debug.Log("open dialogue");
             Player.Instance.DisableMove();
-            _interacting = true;
         }
     }
 
