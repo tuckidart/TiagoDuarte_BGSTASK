@@ -65,7 +65,10 @@ public class Player : Character
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        MoveCharacter(context.ReadValue<Vector2>());
+        if (_canMove)
+        {
+            MoveCharacter(context.ReadValue<Vector2>());
+        }
     }
 
     public override void MoveCharacter(Vector2 moveInput)
@@ -89,6 +92,8 @@ public class Player : Character
                 _equipViews[i].Equip(data.Sprites[it++]);
             }
         }
+
+        //apply attributes
     }
 
     public void UnequipItem(ItemData data)
@@ -100,5 +105,7 @@ public class Player : Character
                 _equipViews[i].Unequip();
             }
         }
+
+        //remove attributes
     }
 }

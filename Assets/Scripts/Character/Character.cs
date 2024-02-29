@@ -20,7 +20,9 @@ public class Character : MonoBehaviour
 
     protected Vector3 _moveInput;
 
-    bool _facingRight = true;
+    private bool _facingRight = true;
+
+    protected bool _canMove = true;
 
     #endregion
 
@@ -61,6 +63,10 @@ public class Character : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         _facingRight = !_facingRight;
     }
+
+    public void EnableMove() => _canMove = true;
+
+    public void DisableMove() => _canMove = false;
 
     #endregion
 

@@ -51,6 +51,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         _camera.orthographicSize = _zoomSize;
+        Player.Instance.DisableMove();
     }
 
     public void CloseInventory()
@@ -61,5 +62,6 @@ public class InventoryManager : MonoBehaviour
         }
 
         _camera.orthographicSize = _defaultSize;
+        Player.Instance.EnableMove();
     }
 }
