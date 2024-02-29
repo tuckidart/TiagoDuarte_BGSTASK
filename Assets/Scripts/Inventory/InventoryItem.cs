@@ -15,7 +15,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Transform _parent = null;
     public Transform Parent => _parent;
 
-    private bool _canSell = false;
+    private bool _canSell = true;
 
     private Action<InventoryItem> _sellCallback = null;
 

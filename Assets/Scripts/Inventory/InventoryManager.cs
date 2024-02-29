@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    //for testing porpuses only
-    public ItemData itemDataTest = null;
-
     public static InventoryManager Instance { get; private set; } = null;
 
     [SerializeField]
@@ -47,7 +44,7 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         //for testing porpuses only
-        AddItem(itemDataTest);
+        AddCoins(999);
     }
 
     public bool AddItem(ItemData data)
