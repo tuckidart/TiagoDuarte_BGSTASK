@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private GameObject[] _shopUis = null;
+
+    [SerializeField]
+    private GameObject _dialogueUi = null;
+    [SerializeField]
+    private RectTransform _dialogueRect = null;
 
     private float _zoomSize = 1.5f;
     private float _defaultSize = 5f;
@@ -60,6 +66,35 @@ public class UIManager : MonoBehaviour
         _inventoryButton.SetActive(false);
 
         AudioManager.Instance.PlayOpenShop();
+    }
+
+    public void OpenDialogue()
+    {
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+
+        if (mousePos.x < Screen.width / 2)
+        {
+            _dialogueRect.pivot = Vector2.one;
+        }
+        else
+        {
+            _dialogueRect.pivot = Vector2.up;
+        }
+
+        _dialogueUi.transform.position = Mouse.current.position.ReadValue();
+
+        _dialogueUi.SetActive(true);
+        _currentUis.Add(_dialogueUi);
+
+        _inventoryButton.SetActive(false);
+    }
+
+    public void CloseDialogue()
+    {
+        _dialogueUi.SetActive(false);
+        _currentUis.Remove(_dialogueUi);
+
+        _inventoryButton.SetActive(true);
     }
 
     public void CloseCurrentUIs()

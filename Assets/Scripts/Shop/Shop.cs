@@ -56,7 +56,6 @@ public class Shop : MonoBehaviour
     {
         UIManager.Instance.OpenShop();
         InventoryManager.Instance.EnableSell();
-        Player.Instance.DisableMove();
     }
 
     public void DisableSlots()

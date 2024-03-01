@@ -10,11 +10,6 @@ public class Shopkeeper : Character, IPointerClickHandler, IPointerEnterHandler,
     [SerializeField]
     private Texture2D _interactionIcon = null;
 
-    [Space]
-
-    [SerializeField]
-    private Shop _shop = null;
-
     private Vector2 _cursorOffset = new Vector2(50, 50);
 
     private void Start()
@@ -40,7 +35,8 @@ public class Shopkeeper : Character, IPointerClickHandler, IPointerEnterHandler,
 
         if (_playerInRange)
         {
-            _shop.OpenShop();
+            Player.Instance.DisableMove();
+            UIManager.Instance.OpenDialogue();
         }
     }
 
