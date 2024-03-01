@@ -63,6 +63,12 @@ public class Player : Character
         _characterState?.EnterState(this);
     }
 
+    public void Cancel()
+    {
+        UIManager.Instance.CloseCurrentUIs();
+        EnableMove();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (_canMove)
@@ -92,8 +98,6 @@ public class Player : Character
                 _equipViews[i].Equip(data.Sprites[it++]);
             }
         }
-
-        //apply attributes
     }
 
     public void UnequipItem(ItemData data)
@@ -105,7 +109,5 @@ public class Player : Character
                 _equipViews[i].Unequip();
             }
         }
-
-        //remove attributes
     }
 }

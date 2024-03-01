@@ -31,6 +31,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             return;
 
         _sellCallback?.Invoke(this);
+        AudioManager.Instance.PlaySell();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

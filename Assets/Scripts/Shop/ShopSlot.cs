@@ -28,6 +28,7 @@ public class ShopSlot : MonoBehaviour
         {
             InventoryManager.Instance.AddItem(_data);
             InventoryManager.Instance.RemoveCoins(_data.Price);
+            AudioManager.Instance.PlayBuy();
         }
     }
 }

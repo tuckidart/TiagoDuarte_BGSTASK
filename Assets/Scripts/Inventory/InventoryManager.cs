@@ -7,15 +7,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; } = null;
 
     [SerializeField]
-    private Camera _camera = null;
-
-    [SerializeField]
     private TextMeshProUGUI _coinsText = null;
-
-    [Space]
-
-    [SerializeField]
-    private GameObject[] _inventoryUis = null;
 
     [Space]
 
@@ -28,13 +20,8 @@ public class InventoryManager : MonoBehaviour
 
     private List<InventoryItem> _items = new List<InventoryItem>();
 
-    private float _zoomSize = 1.5f;
-    private float _defaultSize = 5f;
-
     private int _coins = 0;
     public int Coins => _coins;
-
-    private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -85,24 +72,8 @@ public class InventoryManager : MonoBehaviour
 
     public void OpenInventory()
     {
-        for (int i = 0; i < _inventoryUis.Length; i++)
-        {
-            _inventoryUis[i].SetActive(true);
-        }
-
-        _camera.orthographicSize = _zoomSize;
+        UIManager.Instance.OpenInventory();
         Player.Instance.DisableMove();
-    }
-
-    public void CloseInventory()
-    {
-        for (int i = 0; i < _inventoryUis.Length; i++)
-        {
-            _inventoryUis[i].SetActive(false);
-        }
-
-        _camera.orthographicSize = _defaultSize;
-        Player.Instance.EnableMove();
     }
 
     public void EnableSell()
