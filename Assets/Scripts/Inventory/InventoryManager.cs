@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField]
     private Camera _camera = null;
+
+    [SerializeField]
+    private TextMeshProUGUI _coinsText = null;
 
     [Space]
 
@@ -45,8 +49,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        //for testing porpuses only
         AddCoins(999);
+        _coinsText.text = _coins.ToString();
     }
 
     public void AddItem(ItemData data)
@@ -117,6 +121,19 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddCoins(int value) => _coins += value;
-    public void RemoveCoins(int value) => _coins -= value;
+    public void AddCoins(int value)
+    {
+        Mathf.Min(_coins += value, 999999);
+        UpdateCoinsText();
+    }
+    public void RemoveCoins(int value)
+    {
+        Mathf.Max(_coins -= value, 0);
+        UpdateCoinsText();
+    }
+
+    private void UpdateCoinsText()
+    {
+        _coinsText.text = _coins.ToString();
+    }
 }
