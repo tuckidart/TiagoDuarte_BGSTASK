@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: e9ff7941668839b4e90e1cb3c8bddc08, type: 3}
   type: 2
-  Price: 20
+  Price: 40
   Sprites:
   - {fileID: 21300000, guid: 215dd6c48c732d744aecd29e7fecbbfa, type: 3}
   - {fileID: 21300000, guid: c376d5b80d02ffe4ba89fd03d60ec471, type: 3}
