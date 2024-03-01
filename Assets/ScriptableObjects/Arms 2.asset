@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b219522a26fb54ea5928a1e4d43802, type: 3}
   m_Name: Arms 2
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 5e7415947ce8b1c47ade9a3d811da6cd, type: 3}
+  Icon: {fileID: 21300000, guid: 12012b21b573ae149b6c258239913ac7, type: 3}
   type: 4
   Price: 5
   Sprites:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b219522a26fb54ea5928a1e4d43802, type: 3}
   m_Name: Legs 1
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 40e550cd3b539f14eb98d42b6769b592, type: 3}
+  Icon: {fileID: 21300000, guid: df0ca9869bf68d14a97417699f2ca1eb, type: 3}
   type: 5
   Price: 15
   Sprites:

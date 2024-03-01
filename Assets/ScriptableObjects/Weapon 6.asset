@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b219522a26fb54ea5928a1e4d43802, type: 3}
   m_Name: Weapon 6
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 5d7ff4b982784f843b12c8448e652a36, type: 3}
+  Icon: {fileID: 21300000, guid: 2b848f6de8249834a852cd0c0eb1d3bc, type: 3}
   type: 7
   Price: 50
   Sprites:

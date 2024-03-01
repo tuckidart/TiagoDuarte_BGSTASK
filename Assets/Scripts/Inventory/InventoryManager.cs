@@ -30,6 +30,8 @@ public class InventoryManager : MonoBehaviour
     private int _coins = 0;
     public int Coins => _coins;
 
+    private AudioSource _audioSource;
+
     private void Awake()
     {
         if (Instance != null)

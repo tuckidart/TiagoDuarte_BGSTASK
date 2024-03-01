@@ -7,17 +7,29 @@ public class Shop : MonoBehaviour
     private GameObject _shopSlotPrefab = null;
 
     [SerializeField]
+    private GameObject _inventoryButton = null;
+
+    [SerializeField]
     private GameObject[] _shopUis = null;
 
     [SerializeField]
     private ItemData[] _allItems = null;
+
+    [Space]
+    [SerializeField]
+    private AudioSource _audioSource = null;
+
+    [SerializeField]
+    private AudioClip _openSFX = null;
+    [SerializeField]
+    private AudioClip _closeSFX = null;
 
     private List<GameObject> _shopSlots = new List<GameObject>();
     private List<ItemData> _filteredItems = new List<ItemData>();
 
     private void Start()
     {
-        FilterShop(1);
+        FilterShop((int)ItemType.Head);
     }
 
     public void FilterShop(int type)
@@ -56,17 +68,25 @@ public class Shop : MonoBehaviour
         {
             _shopUis[i].SetActive(true);
         }
+        _inventoryButton.SetActive(false);
 
         InventoryManager.Instance.EnableSell();
         Player.Instance.DisableMove();
+
+        _audioSource.clip = _openSFX;
+        _audioSource.Play();
     }
 
     public void CloseShop()
     {
+        _audioSource.clip = _closeSFX;
+        _audioSource.Play();
+
         for (int i = 0; i < _shopUis.Length; i++)
         {
             _shopUis[i].SetActive(false);
         }
+        _inventoryButton.SetActive(true);
 
         InventoryManager.Instance.DisableSell();
         Player.Instance.EnableMove();

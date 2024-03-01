@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b219522a26fb54ea5928a1e4d43802, type: 3}
   m_Name: Hood 1
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  Icon: {fileID: 21300000, guid: dc7da3b26571fb442833aebb46ec6b07, type: 3}
   type: 1
   Price: 15
   Sprites:

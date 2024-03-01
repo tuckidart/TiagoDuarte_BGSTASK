@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b219522a26fb54ea5928a1e4d43802, type: 3}
   m_Name: Chest 3
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 3d9056df586b6024fbc5b9fee2433eef, type: 3}
+  Icon: {fileID: 21300000, guid: 6d5c1484b39fef840b46cc59d92af9f4, type: 3}
   type: 2
   Price: 20
   Sprites:
