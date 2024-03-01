@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private Camera _camera = null;
+
+    [SerializeField]
+    private Animation _fadeAnimation = null;
 
     [SerializeField]
     private GameObject _inventoryButton = null;
@@ -37,6 +40,12 @@ public class UIManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        _camera = Camera.main;
+        _fadeAnimation.Play();
     }
 
     public void OpenInventory()

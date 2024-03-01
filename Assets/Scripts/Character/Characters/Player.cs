@@ -29,11 +29,6 @@ public class Player : Character
         _movement = new Movement();
     }
 
-    private void Start()
-    {
-        ChangeState(ECharacterState.IDLE);
-    }
-
     public void Update()
     {
         _characterState?.UpdateState();
