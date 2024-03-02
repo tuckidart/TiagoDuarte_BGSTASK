@@ -61,7 +61,11 @@ public class Character : MonoBehaviour
 
     public void EnableMove() => _canMove = true;
 
-    public void DisableMove() => _canMove = false;
+    public void DisableMove()
+    {
+        _canMove = false;
+        _moveInput = Vector2.zero;
+    }
 
     #endregion
 
