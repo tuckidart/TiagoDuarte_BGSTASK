@@ -18,9 +18,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip _sellSfx = null;
     [SerializeField]
+    private AudioClip _dragUISfx = null;
+    [SerializeField]
+    private AudioClip _dropUISfx = null;
+    [SerializeField]
     private AudioClip _openUISfx = null;
     [SerializeField]
     private AudioClip _closeUISfx = null;
+    [SerializeField]
+    private AudioClip _errorSfx = null;
 
     #endregion
 
@@ -53,6 +59,18 @@ public class AudioManager : MonoBehaviour
         PlaySound();
     }
 
+    public void PlayDrag()
+    {
+        _audioSource.clip = _dragUISfx;
+        PlaySound();
+    }
+
+    public void PlayDrop()
+    {
+        _audioSource.clip = _dropUISfx;
+        PlaySound();
+    }
+
     public void PlayOpenUI()
     {
         _audioSource.clip = _openUISfx;
@@ -62,6 +80,12 @@ public class AudioManager : MonoBehaviour
     public void PlayCloseUI()
     {
         _audioSource.clip = _closeUISfx;
+        PlaySound();
+    }
+
+    public void PlayError()
+    {
+        _audioSource.clip = _errorSfx;
         PlaySound();
     }
 

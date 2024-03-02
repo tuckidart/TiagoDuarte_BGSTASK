@@ -18,8 +18,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             return;
 
         InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
+        bool slotOccupied = GetComponentInChildren<InventoryItem>();
 
-        if (transform.childCount == 0 && (inventoryItem.Data.type == _slotType || _slotType == ItemType.Default))
+        if (!slotOccupied && (inventoryItem.Data.type == _slotType || _slotType == ItemType.Default))
         {
             ItemType previousSlotType = inventoryItem.Parent.GetComponent<InventorySlot>().Type;
             if (previousSlotType != ItemType.Default)
@@ -33,6 +34,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             }
 
             inventoryItem.SetNewParent(transform);
+
+            AudioManager.Instance.PlayDrop();
         }
     }
 

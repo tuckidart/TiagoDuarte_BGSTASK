@@ -52,6 +52,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         _image.raycastTarget = false;
         _parent = transform.parent;
         transform.SetParent(transform.root);
+
+        AudioManager.Instance.PlayDrag();
     }
 
     public void OnEndDrag(PointerEventData eventData)

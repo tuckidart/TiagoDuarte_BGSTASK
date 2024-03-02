@@ -25,6 +25,8 @@ public class InventoryManager : MonoBehaviour
     private int _coins = 0;
     public int Coins => _coins;
 
+    private int _maxCoins = 999999;
+
     #endregion
 
     #region Unity Methods
@@ -111,7 +113,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddCoins(int value)
     {
-        Mathf.Min(_coins += value, 999999);
+        Mathf.Min(_coins += value, _maxCoins);
         UpdateCoinsText();
     }
     public void RemoveCoins(int value)
