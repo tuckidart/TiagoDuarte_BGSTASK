@@ -34,6 +34,11 @@ public class Character : MonoBehaviour
 
     #region Other Methods
 
+    public void ChangeToIdle()
+    {
+        ChangeState(ECharacterState.IDLE);
+    }
+
     public virtual void ChangeState(ECharacterState newState) { }
     public virtual void MoveCharacter(Vector2 moveInput) { }
 

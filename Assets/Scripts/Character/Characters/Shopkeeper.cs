@@ -52,8 +52,8 @@ public class Shopkeeper : Character, IPointerClickHandler, IPointerEnterHandler,
 
         if (_playerInRange)
         {
-            Player.Instance.DisableMove();
-            UIManager.Instance.OpenInteraction(_title, _yesText, _noText, OpenShop, Player.Instance.EnableMove);
+            Player.Instance.ChangeState(ECharacterState.INTERACT);
+            UIManager.Instance.OpenInteraction(_title, _yesText, _noText, OpenShop, Player.Instance.ChangeToIdle);
         }
     }
 

@@ -12,7 +12,13 @@ public class Player : Character
     [SerializeField]
     private EquipView[] _equipViews = null;
 
+    [Space]
+
+    [SerializeField]
+    private PlayerInput _inputs = null;
+
     private CharacterState _characterState = null;
+    private Interact _interact = null;
     private Movement _movement = null;
     private Idle _idle = null;
 
@@ -32,6 +38,7 @@ public class Player : Character
 
         _idle = new Idle();
         _movement = new Movement();
+        _interact = new Interact();
     }
 
     public void Update()
@@ -54,6 +61,9 @@ public class Player : Character
 
         switch (characterState)
         {
+            case ECharacterState.INTERACT:
+                _characterState = _interact;
+                break;
             case ECharacterState.MOVEMENT:
                 _characterState = _movement;
                 break;
@@ -71,10 +81,15 @@ public class Player : Character
 
     #region Input Methods
 
+    public void EnableInputs()
+    {
+        _inputs.enabled = true;
+    }
+
     public void Reset()
     {
         UIManager.Instance.CloseCurrentUIs();
-        EnableMove();
+        ChangeToIdle();
     }
 
     public void OnMove(InputAction.CallbackContext context)

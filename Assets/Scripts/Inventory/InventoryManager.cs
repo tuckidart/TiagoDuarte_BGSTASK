@@ -86,7 +86,7 @@ public class InventoryManager : MonoBehaviour
     public void OpenInventory()
     {
         UIManager.Instance.OpenInventory();
-        Player.Instance.DisableMove();
+        Player.Instance.ChangeState(ECharacterState.INTERACT);
     }
 
     #endregion

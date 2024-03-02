@@ -135,6 +135,8 @@ public class UIManager : MonoBehaviour
 
     public void CloseCurrentUIs()
     {
+        _inventoryButton.SetActive(true);
+
         if (_currentUis.Count == 0)
             return;
 
@@ -144,7 +146,6 @@ public class UIManager : MonoBehaviour
         }
 
         _camera.orthographicSize = _defaultSize;
-        _inventoryButton.SetActive(true);
         _currentUis.Clear();
 
         AudioManager.Instance.PlayCloseUI();

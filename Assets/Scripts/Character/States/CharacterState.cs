@@ -1,7 +1,8 @@
 public enum ECharacterState
 {
     IDLE,
-    MOVEMENT
+    MOVEMENT,
+    INTERACT
 }
 
 public abstract class CharacterState
