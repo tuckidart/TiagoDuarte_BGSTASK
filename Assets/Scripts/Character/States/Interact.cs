@@ -15,6 +15,7 @@ public class Interact : CharacterState
         _character = character;
         _character.SetAnimation(_idleAnimationHash);
         _character.DisableMove();
+        _character.SetInteracting(true);
     }
 
     public override void UpdateState() { }
@@ -23,6 +24,7 @@ public class Interact : CharacterState
     public override void ExitState()
     {
         _character.EnableMove();
+        _character.SetInteracting(false);
     }
 
     #endregion

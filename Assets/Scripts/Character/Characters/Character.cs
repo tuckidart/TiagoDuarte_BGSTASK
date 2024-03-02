@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
 
     protected int _currentAnimationHash = -1;
     protected bool _canMove = true;
+    protected bool _interacting = false;
     protected Vector3 _moveInput;
 
     private bool _facingRight = true;
@@ -72,12 +73,18 @@ public class Character : MonoBehaviour
         _moveInput = Vector2.zero;
     }
 
+    public void SetInteracting(bool value)
+    {
+        _interacting = value;
+    }
+
     #endregion
 
     #region Gets
 
     public Rigidbody2D RigidBody => _rigidBody;
     public bool IsFacingRight => _facingRight;
+    public bool IsInteracting => _interacting;
     public Vector3 MoveInput => _moveInput;
     public float MoveSpeed => _moveSpeed;
 

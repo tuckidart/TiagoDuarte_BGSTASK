@@ -37,7 +37,10 @@ public class Shopkeeper : Character, IPointerClickHandler, IPointerEnterHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Cursor.SetCursor(_interactionIcon, _cursorOffset, CursorMode.Auto);
+        if (!Player.Instance.IsInteracting)
+        {
+            Cursor.SetCursor(_interactionIcon, _cursorOffset, CursorMode.Auto);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -47,7 +50,7 @@ public class Shopkeeper : Character, IPointerClickHandler, IPointerEnterHandler,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button != PointerEventData.InputButton.Left)
+        if (eventData.button != PointerEventData.InputButton.Left || Player.Instance.IsInteracting)
             return;
 
         if (_playerInRange)
