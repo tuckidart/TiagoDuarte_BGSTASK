@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
+    #region Variables
+
     [SerializeField]
     private ItemType _slotType = ItemType.Default;
-    public ItemType Type => _slotType;
+
+    #endregion
+
+    #region Input Methods
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -30,4 +35,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             inventoryItem.SetNewParent(transform);
         }
     }
+
+    #endregion
+
+    #region Get Methods
+
+    public ItemType Type => _slotType;
+
+    #endregion
 }

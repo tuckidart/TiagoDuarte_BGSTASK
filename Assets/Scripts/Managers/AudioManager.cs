@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    #region Variables
+
     public static AudioManager Instance { get; private set; } = null;
 
     [SerializeField]
@@ -20,6 +22,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip _closeUISfx = null;
 
+    #endregion
+
+    #region Unity Methods
+
     private void Awake()
     {
         if (Instance != null)
@@ -30,6 +36,10 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
     }
+
+    #endregion
+
+    #region Play Methods
 
     public void PlayBuy()
     {
@@ -65,4 +75,6 @@ public class AudioManager : MonoBehaviour
     {
         _audioSource.Play();
     }
+
+    #endregion
 }

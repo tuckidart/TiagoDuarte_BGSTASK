@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class Movement : CharacterState
 {
+    #region Variables
+
     private readonly int _runAnimationHash = Animator.StringToHash("Rogue_run_01");
 
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
     private float _collisionOffset = 0.05f;
+
+    #endregion
+
+    #region State Methods
 
     public override void EnterState(Character character)
     {
@@ -23,13 +29,17 @@ public class Movement : CharacterState
         if (moveInput != Vector3.zero)
         {
             TryMoving();
-            //_character.RigidBody.MovePosition(_character.transform.position + (moveInput * _character.MoveSpeed * Time.fixedDeltaTime));
-            //CheckFlip();
             return;
         }
 
         _character.ChangeState(ECharacterState.IDLE);
     }
+
+    public override void ExitState() { }
+
+    #endregion
+
+    #region Other Methods
 
     private void TryMoving()
     {
@@ -53,5 +63,5 @@ public class Movement : CharacterState
         }
     }
 
-    public override void ExitState() { }
+    #endregion
 }

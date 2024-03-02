@@ -7,22 +7,19 @@ public class Character : MonoBehaviour
     [SerializeField]
     private Animator _animator = null;
 
-    protected int _currentAnimationHash = -1;
-
     [SerializeField]
     private Rigidbody2D _rigidBody = null;
-    public Rigidbody2D RigidBody => _rigidBody;
 
     [Space]
 
     [SerializeField]
     private float _moveSpeed = 3f;
 
+    protected int _currentAnimationHash = -1;
+    protected bool _canMove = true;
     protected Vector3 _moveInput;
 
     private bool _facingRight = true;
-
-    protected bool _canMove = true;
 
     #endregion
 
@@ -30,8 +27,6 @@ public class Character : MonoBehaviour
 
     public virtual void LateUpdate()
     {
-        //Now the Animation will be changed
-        //according to the last animation hash
         CheckChangedAnimationHash();
     }
 
@@ -71,6 +66,8 @@ public class Character : MonoBehaviour
     #endregion
 
     #region Gets
+
+    public Rigidbody2D RigidBody => _rigidBody;
     public bool IsFacingRight => _facingRight;
     public Vector3 MoveInput => _moveInput;
     public float MoveSpeed => _moveSpeed;

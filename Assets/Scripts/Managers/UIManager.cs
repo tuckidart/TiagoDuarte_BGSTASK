@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
 
 public class UIManager : MonoBehaviour
 {
+    #region Variables
+
     public static UIManager Instance { get; private set; } = null;
 
     [SerializeField]
@@ -22,14 +25,20 @@ public class UIManager : MonoBehaviour
     private GameObject[] _shopUis = null;
 
     [SerializeField]
-    private GameObject _dialogueUi = null;
+    private Interaction _interaction = null;
     [SerializeField]
-    private RectTransform _dialogueRect = null;
+    private GameObject _interactionUi = null;
+    [SerializeField]
+    private RectTransform _interactionRect = null;
 
     private float _zoomSize = 1.5f;
     private float _defaultSize = 5f;
 
     private List<GameObject> _currentUis = new List<GameObject>();
+
+    #endregion
+
+    #region Unity Methods
 
     private void Awake()
     {
@@ -48,6 +57,10 @@ public class UIManager : MonoBehaviour
         _fadeAnimation.Play();
     }
 
+    #endregion
+
+    #region Inventory Methods
+
     public void OpenInventory()
     {
         for (int i = 0; i < _inventoryUis.Length; i++)
@@ -63,6 +76,10 @@ public class UIManager : MonoBehaviour
         AudioManager.Instance.PlayOpenUI();
     }
 
+    #endregion
+
+    #region Shop Methods
+
     public void OpenShop()
     {
         for (int i = 0; i < _shopUis.Length; i++)
@@ -77,34 +94,46 @@ public class UIManager : MonoBehaviour
         AudioManager.Instance.PlayOpenShop();
     }
 
-    public void OpenDialogue()
+    #endregion
+
+    #region Interaction Methods
+
+    public void OpenInteraction(string title, string yesText, string noText, Action yesCallback, Action noCallback)
     {
+        yesCallback += CloseInteraction;
+        noCallback += CloseInteraction;
+        _interaction.SetInteraction(title, yesText, noText, yesCallback, noCallback);
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
 
         if (mousePos.x < Screen.width / 2)
         {
-            _dialogueRect.pivot = Vector2.one;
+            _interactionRect.pivot = Vector2.one;
         }
         else
         {
-            _dialogueRect.pivot = Vector2.up;
+            _interactionRect.pivot = Vector2.up;
         }
 
-        _dialogueUi.transform.position = Mouse.current.position.ReadValue();
+        _interactionUi.transform.position = Mouse.current.position.ReadValue();
 
-        _dialogueUi.SetActive(true);
-        _currentUis.Add(_dialogueUi);
+        _interactionUi.SetActive(true);
+        _currentUis.Add(_interactionUi);
 
         _inventoryButton.SetActive(false);
     }
 
-    public void CloseDialogue()
+    public void CloseInteraction()
     {
-        _dialogueUi.SetActive(false);
-        _currentUis.Remove(_dialogueUi);
+        _interactionUi.SetActive(false);
+        _currentUis.Remove(_interactionUi);
 
         _inventoryButton.SetActive(true);
     }
+
+    #endregion
+
+    #region Other Methods
 
     public void CloseCurrentUIs()
     {
@@ -122,4 +151,6 @@ public class UIManager : MonoBehaviour
 
         AudioManager.Instance.PlayCloseUI();
     }
+
+    #endregion
 }

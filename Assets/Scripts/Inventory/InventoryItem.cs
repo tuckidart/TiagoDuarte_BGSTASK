@@ -6,6 +6,8 @@ using System;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
+    #region Variables
+
     [SerializeField]
     private Image _image = null;
 
@@ -19,11 +21,19 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private Action<InventoryItem> _sellCallback = null;
 
+    #endregion
+
+    #region Init Methods
+
     public void CreateItem(ItemData data)
     {
         _data = data;
         _image.sprite = data.Icon;
     }
+
+    #endregion
+
+    #region Input Methods
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -61,10 +71,24 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.position = Mouse.current.position.ReadValue();
     }
 
-    public void SetNewParent(Transform newParent) => _parent = newParent;
+    #endregion
+
+    #region Sell Methods
 
     public void EnableSell() => _canSell = true;
     public void DisableSell() => _canSell = false;
 
+    #endregion
+
+    #region Other Methods
+
+    public void SetNewParent(Transform newParent) => _parent = newParent;
+
+    #endregion
+
+    #region Callback Methods
+
     public void AddNewSellCallback(Action<InventoryItem> callback) => _sellCallback = callback;
+
+    #endregion
 }

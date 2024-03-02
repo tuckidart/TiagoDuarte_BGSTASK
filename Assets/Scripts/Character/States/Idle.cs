@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class Idle : CharacterState
 {
+    #region Variables
+
     private readonly int _idleAnimationHash = Animator.StringToHash("Rogue_idle_01");
+
+    #endregion
+
+    #region State Methods
 
     public override void EnterState(Character character)
     {
@@ -20,4 +26,6 @@ public class Idle : CharacterState
 
     public override void FixedUpdateState() { }
     public override void ExitState() { }
+
+    #endregion
 }

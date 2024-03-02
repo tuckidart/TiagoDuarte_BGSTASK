@@ -4,6 +4,8 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
+    #region Variables
+
     public static InventoryManager Instance { get; private set; } = null;
 
     [SerializeField]
@@ -23,6 +25,10 @@ public class InventoryManager : MonoBehaviour
     private int _coins = 0;
     public int Coins => _coins;
 
+    #endregion
+
+    #region Unity Methods
+
     private void Awake()
     {
         if (Instance != null)
@@ -37,8 +43,11 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         AddCoins(999);
-        _coinsText.text = _coins.ToString();
     }
+
+    #endregion
+
+    #region Other Methods
 
     public void AddItem(ItemData data)
     {
@@ -76,6 +85,10 @@ public class InventoryManager : MonoBehaviour
         Player.Instance.DisableMove();
     }
 
+    #endregion
+
+    #region Sell Methods
+
     public void EnableSell()
     {
         for (int i = 0; i < _items.Count; i++)
@@ -92,6 +105,10 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Money Methods
+
     public void AddCoins(int value)
     {
         Mathf.Min(_coins += value, 999999);
@@ -107,4 +124,6 @@ public class InventoryManager : MonoBehaviour
     {
         _coinsText.text = _coins.ToString();
     }
+
+    #endregion
 }

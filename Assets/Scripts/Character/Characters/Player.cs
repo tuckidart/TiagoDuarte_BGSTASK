@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player : Character
 {
+    #region Variables
+
     public static Player Instance { get; private set; } = null;
 
     [Space]
@@ -11,9 +13,12 @@ public class Player : Character
     private EquipView[] _equipViews = null;
 
     private CharacterState _characterState = null;
-
     private Movement _movement = null;
     private Idle _idle = null;
+
+    #endregion
+
+    #region Unity Methods
 
     private void Awake()
     {
@@ -39,6 +44,10 @@ public class Player : Character
         _characterState?.FixedUpdateState();
     }
 
+    #endregion
+
+    #region State Methods
+
     public override void ChangeState(ECharacterState characterState)
     {
         _characterState?.ExitState();
@@ -58,7 +67,11 @@ public class Player : Character
         _characterState?.EnterState(this);
     }
 
-    public void Cancel()
+    #endregion
+
+    #region Input Methods
+
+    public void Reset()
     {
         UIManager.Instance.CloseCurrentUIs();
         EnableMove();
@@ -83,6 +96,10 @@ public class Player : Character
         }
     }
 
+    #endregion
+
+    #region Equip Methods
+
     public void EquipItem(ItemData data)
     {
         int it = 0;
@@ -105,4 +122,6 @@ public class Player : Character
             }
         }
     }
+
+    #endregion
 }
