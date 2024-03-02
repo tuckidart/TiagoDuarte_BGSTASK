@@ -100,8 +100,6 @@ public class UIManager : MonoBehaviour
 
     public void OpenInteraction(string title, string yesText, string noText, Action yesCallback, Action noCallback)
     {
-        yesCallback += CloseInteraction;
-        noCallback += CloseInteraction;
         _interaction.SetInteraction(title, yesText, noText, yesCallback, noCallback);
 
         Vector2 mousePos = Mouse.current.position.ReadValue();

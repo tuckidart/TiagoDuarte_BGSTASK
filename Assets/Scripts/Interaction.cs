@@ -26,11 +26,13 @@ public class Interaction : MonoBehaviour
 
     public void OnYes()
     {
+        UIManager.Instance.CloseInteraction();
         _yesCallback.Invoke();
     }
 
     public void OnNo()
     {
+        UIManager.Instance.CloseInteraction();
         _noCallback.Invoke();
     }
 }

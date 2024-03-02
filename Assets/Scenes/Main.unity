@@ -10277,7 +10277,6 @@ GameObject:
   - component: {fileID: 1281532090740835446}
   - component: {fileID: 1281532090740835447}
   - component: {fileID: 1281532090740835433}
-  - component: {fileID: 1281532090740835449}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10463,6 +10462,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 222562a0-a438-4432-8631-a483f382057b
     m_ActionName: Player/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1196520600788353936}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 28ccc1ba-62ac-4bfb-b416-b0a6e4a2f623
+    m_ActionName: Player/OpenInventory[/Keyboard/i]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10566,27 +10581,6 @@ MonoBehaviour:
   - {fileID: 1326385162514452585}
   - {fileID: 1326385164657976585}
   - {fileID: 1326385162479401861}
---- !u!320 &1281532090740835449
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196520600788353936}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: c8dc7efbb5a695f49be6d0d6b607cd06, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 0}
-    value: {fileID: 1281532090740835434}
-  - key: {fileID: 6055721184555004783, guid: c8dc7efbb5a695f49be6d0d6b607cd06, type: 2}
-    value: {fileID: 0}
-  m_ExposedReferences:
-    m_References: []
 --- !u!212 &1326385161566633170
 SpriteRenderer:
   m_ObjectHideFlags: 0
