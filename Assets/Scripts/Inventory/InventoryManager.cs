@@ -51,7 +51,7 @@ public class InventoryManager : MonoBehaviour
 
     #region Other Methods
 
-    public void AddItem(ItemData data)
+    public bool AddItem(ItemData data)
     {
         for (int i = 0; i < _inventorySlots.Length; i++)
         {
@@ -60,9 +60,11 @@ public class InventoryManager : MonoBehaviour
             if (item == null)
             {
                 CreateItemInSlot(data, slot);
-                break;
+                return true;
             }
         }
+
+        return false;
     }
 
     public void RemoveItem(InventoryItem item)

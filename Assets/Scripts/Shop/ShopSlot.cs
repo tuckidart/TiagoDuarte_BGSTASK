@@ -36,10 +36,14 @@ public class ShopSlot : MonoBehaviour
     {
         if (InventoryManager.Instance.Coins >= _data.Price)
         {
-            InventoryManager.Instance.AddItem(_data);
-            InventoryManager.Instance.RemoveCoins(_data.Price);
-            AudioManager.Instance.PlayBuy();
-            return;
+            bool bought = InventoryManager.Instance.AddItem(_data);
+
+            if (bought)
+            {
+                InventoryManager.Instance.RemoveCoins(_data.Price);
+                AudioManager.Instance.PlayBuy();
+                return;
+            }
         }
 
         AudioManager.Instance.PlayError();
